@@ -57,7 +57,7 @@ router.delete("/candidate/:id", (req, res) => {
 router.post("/candidate", ({ body }, res) => {
     const errors = inputCheck(body, "first_name", "last_name", "industry_connected");
     if(errors) {
-        res.status(400).json({ errors: errors });
+        res.status(400).json({ error: errors });
         return;
     }
     const sql = `INSERT INTO candidates (first_name, last_name, industry_connected)
